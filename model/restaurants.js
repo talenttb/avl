@@ -2,7 +2,7 @@
 const db = require('./db').db
 const Query = require('pg').Query
 
-const get_restaurants = (query_time = Date.now()) => {
+const get_restaurants = (query_time) => {
   return db
       .query(
           `

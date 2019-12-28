@@ -3,12 +3,26 @@ csv 存成 -> db
 db model
 
 restaurants:
+CREATE SEQUENCE public.restaurants_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START 49
+	CACHE 1
+	NO CYCLE;
 CREATE TABLE public.restaurants (
 	id INTEGER DEFAULT NEXTVAL('restaurants_id_seq'),
 	"name" varchar(2048) NULL
 );
 
 restaurants_schedules:
+CREATE SEQUENCE public.restaurants_schedules_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START 49
+	CACHE 1
+	NO CYCLE;
 CREATE TABLE public.restaurants_schedules (
 	id INTEGER DEFAULT NEXTVAL('restaurants_schedules_id_seq'),
 	r_id INTEGER,
