@@ -3,6 +3,7 @@ const db = require('./db').db
 const Query = require('pg').Query
 
 const get_restaurants = (query_time) => {
+  console.log(query_time.getDay(), query_time);
   return db
       .query(
           `
