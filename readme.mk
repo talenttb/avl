@@ -19,9 +19,43 @@ CREATE TABLE public.restaurants_schedules (
 	is_open boolean,
 );
 
-
 api:
-GET: /restaurants
+GET: /restaurants/opening
 query: 
 	datetime with ISO8601
+return:
+	[
+		{
+			"id": 1,
+			"name" : "test",
+		}
+	]
 
+
+api:
+GET: /restaurants_schedules
+query: 
+	datetime with ISO8601
+return:
+	[
+		{
+			"id": 1,
+			"name" : "test",
+			"schedules" : [
+				{
+					"id":1,
+					"week_of_day": "1",
+					"start_time": "2019-12-12T09:00:00+08:00",
+					"end_time": "2019-12-12T14:00:00+08:00",
+					"is_open": true
+				},
+				{
+					"id":2,
+					"week_of_day": "1",
+					"start_time": "2019-12-12T17:00:00+08:00",
+					"end_time": "2019-12-12T20:00:00+08:00",
+					"is_open": true
+				},
+			]
+		}
+	]
