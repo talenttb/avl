@@ -1,13 +1,13 @@
 // import {client} from './db'
-const client = require('./db')
+const db = require('./db').db
 const Query = require('pg').Query
 
 const get_restaurants = () => {
-  const query = new Query('select * from restaurants');
-  const result = client.query(query)
-  return result;
+  return db.query('select * from restaurants')
+      .then(res => {
+        return res.rows;
+      })
+      .catch(e => console.error(e.stack))
 };
 
-module.exports = {
-  get_restaurants: get_restaurants
-};
+module.exports = {get_restaurants};
